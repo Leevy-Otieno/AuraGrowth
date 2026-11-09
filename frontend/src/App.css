@@ -1,0 +1,32 @@
+/* LandingPage.css */
+:root {
+  --body-font-family: 'Inter', sans-serif;
+  --body-font-size: 16px;
+  --body-font-weight: 400;
+  --body-font-color: #2e3c40;
+  --body-line-height: 1.45;
+  --heading-font-family: 'Inter', sans-serif;
+  --heading-font-color: #000103;
+  --link-font-color: #000103;
+  --link-hover-font-color: #4153d4;
+}
+
+body {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
+  color: var(--body-font-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font-family);
+  color: var(--heading-font-color);
+}
+
+.attach{
+  background-attachment: fixed;
+  overflow: auto;
+}
