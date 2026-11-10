@@ -17,7 +17,7 @@ const fallbackBlogs = [
     _id: "blog-2",
     title: "Why React & Modern Cloud Architecture Drive E-Commerce",
     content: "Speed and responsiveness directly impact user acquisition. Learn why full-stack microservice architectures outpace legacy solutions.",
-    author: "AuraGrowth Tech Team",
+    author: "Omnivolta Digital Tech Team",
     date: "Oct 28, 2026",
     imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
   },
@@ -25,7 +25,7 @@ const fallbackBlogs = [
     _id: "blog-3",
     title: "Mastering Short-Form Video Algorithms for TikTok & Reels",
     content: "Captivate audiences in the first 3 seconds using kinetic typography, visual hooks, and strategic pacing to maximize watch time.",
-    author: "Creative Production Team",
+    author: "Omnivolta Digital Creative Team",
     date: "Oct 24, 2026",
     imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
   },

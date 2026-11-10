@@ -42,7 +42,7 @@ const fallbackBlogs = [
       <h2>Enterprise Cloud Scalability with Serverless Infrastructure</h2>
       <p>Deploying application logic to distributed edge networks allows static assets and API routes to be executed directly in the geographic region nearest to the user. This edge-rendering paradigm eliminates global latency, provides built-in DDoS defense mechanisms, and ensures your application automatically scales server capacity up or down based on real-time traffic spikes.</p>
     `,
-    author: "AuraGrowth Tech Team",
+    author: "Omnivolta Digital Tech Team",
     date: "2026-10-28T10:00:00.000Z",
     imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
   },

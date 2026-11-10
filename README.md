@@ -1,16 +1,16 @@
-# 🚀 AuraGrowth — Dynamic Digital Marketing Agency Platform
+# 🚀 Omnivolta Digital — Dynamic Digital Marketing Agency Platform
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Stack: MERN](https://img.shields.io/badge/Stack-MERN-green.svg)
 
 ## Overview
-**AuraGrowth** is a modern, high-performance dynamic web application built for a premier digital marketing agency. Designed and engineered using the MERN stack (MongoDB, Express.js, React.js, and Node.js), this platform showcases scalable full-stack development, dynamic content manageme
+**Omnivolta Digital** is a modern, high-performance dynamic web application built for a premier digital marketing agency. Designed and engineered using the MERN stack (MongoDB, Express.js, React.js, and Node.js), this platform showcases scalable full-stack development, dynamic content manageme
 nt (CMS), seamless user interactions, and robust security practices.
 
 ---
 
 ## Table of Contents
-- [🚀 AuraGrowth — Dynamic Digital Marketing Agency Platform](#-auragrowth--dynamic-digital-marketing-agency-platform)
+- [🚀 Omnivolta Digital — Dynamic Digital Marketing Agency Platform](#-omnivolta-digital--dynamic-digital-marketing-agency-platform)
   - [Overview](#overview)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)

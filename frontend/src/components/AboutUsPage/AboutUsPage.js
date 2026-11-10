@@ -158,7 +158,7 @@ const AboutUsPage = () => {
               </h1>
 
               <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Welcome to AuraGrowth Marketing. We are dedicated to delivering exceptional results and cultivating enduring relationships. Our mission is to empower businesses, elevate marketing strategies, and achieve unparalleled success in the digital realm.
+                Welcome to Omnivolta Digital Marketing. We are dedicated to delivering exceptional results and cultivating enduring relationships. Our mission is to empower businesses, elevate marketing strategies, and achieve unparalleled success in the digital realm.
               </p>
 
               {/* Action Buttons */}
@@ -229,7 +229,7 @@ const AboutUsPage = () => {
             <h2 className="text-xs font-bold uppercase tracking-widest text-cyan-400">Who We Are</h2>
             <h3 className="text-3xl sm:text-4xl font-bold text-white">Your Trusted Digital Marketing Partner</h3>
             <p className="text-slate-300 leading-relaxed">
-              At AuraGrowth Marketing, every pulse resonates with the promise of unparalleled success. We take pride in being the trusted partner for businesses seeking to thrive in the digital landscape, whether you're a burgeoning startup or a well-established franchise.
+              At Omnivolta Digital Marketing, every pulse resonates with the promise of unparalleled success. We take pride in being the trusted partner for businesses seeking to thrive in the digital landscape, whether you're a burgeoning startup or a well-established franchise.
             </p>
           </div>
 

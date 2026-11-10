@@ -194,7 +194,7 @@ const sampleBlogs = [
     title: "Why Full-Stack Modern Web Apps Outperform Standard Websites",
     excerpt: "Learn how React, cloud databases, and API-driven architectures convert passive traffic into active leads.",
     content: "Speed and responsiveness directly impact user acquisition. Here is why full-stack architectures deliver superior conversions...",
-    author: "AuraGrowth Tech Team",
+    author: "Omnivolta Digital Tech Team",
     date: new Date().toISOString(),
     image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
   }
@@ -273,7 +273,7 @@ app.post("/send-email", async (req, res) => {
     const mailOptions = {
       from: email,
       to: process.env.DESIGNATED_EMAIL || "testmail@example.com",
-      subject: "New AuraGrowth Contact Form Submission",
+      subject: "New Omnivolta Digital Contact Form Submission",
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
     };
 

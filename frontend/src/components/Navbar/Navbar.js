@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import auraLogo from '../../assets/auragrowth.jpg';
 
+import omnivoltaLogo from '../../assets/omnivoltadigital.jpeg';
 // Rotating promotional headlines for the agency ticker
 const promoTexts = [
   "⚡ We Make Brands Impossible To Ignore",
@@ -62,14 +62,14 @@ const NavigationBar = () => {
             <Link to="/" className="flex items-center gap-3 group shrink-0" onClick={handleNavLinkClick}>
               <div className="relative overflow-hidden rounded-xl p-1 bg-gradient-to-r from-blue-600/30 via-cyan-500/30 to-indigo-600/30 group-hover:from-blue-500 group-hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-blue-900/25">
                 <img 
-                  src={auraLogo} 
-                  alt="AuraGrowth Logo" 
+                  src={omnivoltaLogo} 
+                  alt="Omnivolta Digital Logo" 
                   className="h-9 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="hidden sm:flex flex-col">
                 <span className="text-lg font-extrabold text-white tracking-tight leading-none group-hover:text-cyan-400 transition-colors">
-                  AURA<span className="text-cyan-400">GROWTH</span>
+                  Omnivolta <span className="text-cyan-400">Digital</span>
                 </span>
                 <span className="text-[10px] tracking-widest text-slate-400 font-semibold uppercase">
                   We Make Brands Impossible to Ignore

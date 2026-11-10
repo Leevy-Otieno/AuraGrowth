@@ -81,7 +81,7 @@ const ContactUsForm = () => {
                       href="mailto:leevyotieno@gmail.com"
                       className="text-cyan-400 hover:underline font-medium"
                     >
-                      auragrowth@gmail.com
+                      omnivoltadigital@gmail.com
                     </a>
                   </p>
                 </div>
