@@ -5,7 +5,8 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 const blogRoutes = require("./routes/blogRoutes");
 const serviceRoutes = require("./routes/serviceRoutes");
-const Service = require("./models/serviceModel"); // Ensure Service model is imported for auto-seeding
+const Service = require("./models/serviceModel");
+const Blog = require("./models/blogModel");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -13,10 +14,10 @@ const PORT = process.env.PORT || 8000;
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
 
-// Dynamic CORS configuration for local development & live deployment
+// Dynamic CORS configuration for local development & production deployments
 const allowedOrigins = [
   "http://localhost:3000",
-  process.env.FRONTEND_URL // Will automatically allow your deployed Vercel domain when set
+  process.env.FRONTEND_URL // Set this in Render dashboard once Vercel deploys
 ].filter(Boolean);
 
 app.use(
@@ -25,7 +26,7 @@ app.use(
       if (!origin || allowedOrigins.indexOf(origin) !== -1) {
         callback(null, true);
       } else {
-        callback(null, true); // Fallback to allow requests during initial launch
+        callback(null, true); // Fallback to allow requests during deployment setup
       }
     },
     credentials: true,
@@ -179,20 +180,56 @@ const servicesData = [
   }
 ];
 
-// Auto-seed function to populate database on startup if empty
-const autoSeedDatabase = async () => {
+// Sample blogs data for auto-seeding
+const sampleBlogs = [
+  {
+    title: "10 Digital Marketing Strategies to Dominate in 2026",
+    excerpt: "Discover the latest growth hacks, SEO methodologies, and social media advertising trends for maximum revenue.",
+    content: "Full guide on modern digital marketing tactics including AI automation, high-converting copy, and multi-channel attribution...",
+    author: "Leevy Otieno",
+    date: new Date().toISOString(),
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Why Full-Stack Modern Web Apps Outperform Standard Websites",
+    excerpt: "Learn how React, cloud databases, and API-driven architectures convert passive traffic into active leads.",
+    content: "Speed and responsiveness directly impact user acquisition. Here is why full-stack architectures deliver superior conversions...",
+    author: "AuraGrowth Tech Team",
+    date: new Date().toISOString(),
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+  }
+];
+
+// Auto-seed function for services
+const autoSeedServices = async () => {
   try {
     const count = await Service.countDocuments();
     if (count < 13) {
-      console.log(`Database collection has ${count} items. Re-seeding all 13 services...`);
+      console.log(`Database collection has ${count} service items. Re-seeding all 13 services...`);
       await Service.deleteMany({});
       await Service.insertMany(servicesData);
-      console.log("Database successfully populated with all 13 services (including Cloud Consulting)!");
+      console.log("Database successfully populated with all 13 services!");
     } else {
-      console.log(`Database already contains ${count} service records. Skipping auto-seed.`);
+      console.log(`Database already contains ${count} service records. Skipping service auto-seed.`);
     }
   } catch (error) {
-    console.error("Auto-seeding error:", error);
+    console.error("Service auto-seeding error:", error);
+  }
+};
+
+// Auto-seed function for blogs
+const autoSeedBlogs = async () => {
+  try {
+    const count = await Blog.countDocuments();
+    if (count === 0) {
+      console.log("Database blogs collection is empty. Auto-seeding sample blogs...");
+      await Blog.insertMany(sampleBlogs);
+      console.log("Database successfully populated with sample blogs!");
+    } else {
+      console.log(`Database already contains ${count} blog articles. Skipping blog auto-seed.`);
+    }
+  } catch (error) {
+    console.error("Blog auto-seeding error:", error);
   }
 };
 
@@ -206,8 +243,9 @@ const connectToMongoDB = async () => {
     await mongoose.connect(MONGO_URI);
     console.log("Connected to MongoDB Atlas successfully.");
 
-    // Trigger auto-seed right after connection succeeds
-    await autoSeedDatabase();
+    // Trigger auto-seed functions after database connection succeeds
+    await autoSeedServices();
+    await autoSeedBlogs();
   } catch (error) {
     console.error("MongoDB connection error:", error);
   }
@@ -215,11 +253,11 @@ const connectToMongoDB = async () => {
 
 connectToMongoDB();
 
-// Use the blog and service routes
+// API Routes
 app.use("/blogs", blogRoutes);
 app.use("/services", serviceRoutes);
 
-// Route to handle contact form email sending
+// Contact form email handling route
 app.post("/send-email", async (req, res) => {
   const { name, email, phone, message } = req.body;
 

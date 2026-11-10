@@ -4,6 +4,7 @@ import auraLogo from '../../assets/auragrowth.jpg';
 import brian from '../../assets/brianleso.jpeg';
 import leevy from '../../assets/leevy.jpeg';
 import luka from '../../assets/luka.jpeg';
+import tyresse from '../../assets/tyresse.jpeg';
 
 // --- EMBEDDED SVG ICONS (Zero external dependencies) ---
 const SparklesIcon = () => (
@@ -337,7 +338,7 @@ const AboutUsPage = () => {
           
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <h2 className="text-xs font-bold uppercase tracking-widest text-blue-400">Premier Digital Marketing Partners</h2>
-            <h3 className="text-3xl sm:text-4xl font-bold text-white">Meet Our Dedicated Team</h3>
+            <h3 className="text-3xl sm:text-4xl font-bold text-white">Meet The Main Team Leaders</h3>
             <p className="text-slate-300">
               Our dedicated team consists of over 10 highly skilled professionals who excel in strategic planning, creative innovation, and technical mastery to ensure the success of your digital campaigns.
             </p>
@@ -358,6 +359,24 @@ const AboutUsPage = () => {
                 <p className="text-xs text-blue-400 font-semibold mb-3">Founder & Lead Strategist</p>
                 <p className="text-xs text-slate-400 leading-relaxed">
                   Passionate about technology, driving innovation, and scaling global digital strategies.
+                </p>
+              </div>
+            </div>
+            <div className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={tyresse}
+                  alt="Tyresse Abdi" 
+                  className="w-full h-full object-contain transform transition-transform duration-500 ease-out group-hover:scale-125 z-10"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+              </div>
+              <div className="p-6 text-center">
+                <h4 className="text-lg font-bold text-white">Tyresse Abdi</h4>
+                <p className="text-xs text-blue-400 font-semibold mb-3">Creative & Content Strategist</p>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Crafting compelling narratives and visual content that resonate with audiences and drive engagement.
+                 
                 </p>
               </div>
             </div>

@@ -63,7 +63,7 @@ const ContactUsForm = () => {
                 <div>
                   <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-1">Address</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    12th floor Brooklyn Tower, Next to YMCA club, SG Highway, Ahmedabad 380015
+                   Kivuli Plaza, Kivuli Road, Nairobi
                   </p>
                 </div>
               </li>
@@ -78,10 +78,10 @@ const ContactUsForm = () => {
                   <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-1">Email</h3>
                   <p className="text-slate-400 text-sm">
                     <a
-                      href="mailto:testnodemailerrai@gmail.com"
+                      href="mailto:leevyotieno@gmail.com"
                       className="text-cyan-400 hover:underline font-medium"
                     >
-                      testnodemailerrai@gmail.com
+                      auragrowth@gmail.com
                     </a>
                   </p>
                 </div>

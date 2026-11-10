@@ -1,5 +1,5 @@
 // controllers/blogController.js
-const BlogPost = require("../../models/BlogPost");
+const BlogPost = require("../../models/blogModel");
 
 exports.getAllBlogPosts = async (req, res) => {
   try {
