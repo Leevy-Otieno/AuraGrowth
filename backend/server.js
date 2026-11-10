@@ -1,53 +1,82 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const nodemailer = require('nodemailer');
-const blogRoutes = require("./routes/blogRoutes");
-const serviceRoutes = require('./routes/serviceRoutes');
-const Service = require("./models/serviceModel"); // Ensure Service model is imported for auto-seeding
+const nodemailer = require("nodemailer");
 const cors = require("cors");
+const blogRoutes = require("./routes/blogRoutes");
+const serviceRoutes = require("./routes/serviceRoutes");
+const Service = require("./models/serviceModel"); // Ensure Service model is imported for auto-seeding
 
 const app = express();
-const port = 8000;
+const PORT = process.env.PORT || 8000;
 
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
-app.use(cors());
 
-// Complete list of services for auto-seeding
+// Dynamic CORS configuration for local development & live deployment
+const allowedOrigins = [
+  "http://localhost:3000",
+  process.env.FRONTEND_URL // Will automatically allow your deployed Vercel domain when set
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(null, true); // Fallback to allow requests during initial launch
+      }
+    },
+    credentials: true,
+  })
+);
+
+// Complete master list of all 13 services for auto-seeding
 const servicesData = [
   {
     title: "Full-Stack Web App Development",
-    description: "Custom, scalable web applications built with modern frameworks like React, Node.js, and cloud backends.",
-    features: ["Custom Web Apps", "REST & GraphQL APIs", "Cloud Database Integration"],
+    description: "Architecting high-performance, enterprise-grade web applications from scratch. We engineer secure REST & GraphQL APIs, implement robust cloud database schemas, and build lightning-fast user interfaces using modern React ecosystems.",
+    features: ["Enterprise React Architecture", "Secure Node/Express Backends", "High-Concurrency Cloud Databases"],
     serviceType: "Full-Stack Web App Development",
-    serviceOuterDescription: "End-to-end full-stack web application development engineered for high performance and scalability.",
+    serviceOuterDescription: "Architecting high-performance, enterprise-grade web applications, custom APIs, and scalable cloud databases.",
     serviceCardHeading: "Full-Stack Web App Development",
-    serviceCardPara: "Transform complex workflows into lightning-fast, secure web apps using modern React, Node.js, and robust database architectures.",
+    serviceCardPara: "Transform your complex business workflows into lightning-fast, secure, and scalable web applications using React, Node.js, and cloud backends.",
     serviceInnerHeading: "Engineered for Enterprise Scalability",
-    serviceInnerPara: "We write clean, modular code with strict security standards and seamless cloud deployments."
+    serviceInnerPara: "We write clean, modular, maintainable code with strict security standards, automated testing, and seamless cloud deployments."
   },
   {
     title: "Mobile Application Development",
-    description: "Cross-platform and native iOS & Android apps built for exceptional user retention and performance.",
-    features: ["iOS & Android", "React Native / Flutter", "App Store Deployment"],
+    description: "Developing cross-platform and native iOS and Android mobile solutions engineered for exceptional user retention and fluid gesture animations.",
+    features: ["Cross-Platform Native Speed", "Advanced Gesture Animations", "Strict App Store Compliance"],
     serviceType: "Mobile Application Development",
-    serviceOuterDescription: "High-performance cross-platform and native mobile apps built for iOS and Android.",
+    serviceOuterDescription: "Sleek, high-performance cross-platform and native iOS & Android applications.",
     serviceCardHeading: "Mobile Application Development",
-    serviceCardPara: "Bring your app idea straight to your users with sleek, high-performance mobile applications using React Native and Flutter.",
-    serviceInnerHeading: "Seamless App Store Launch",
-    serviceInnerPara: "We handle everything from UI prototyping to strict Apple App Store and Google Play compliance."
+    serviceCardPara: "Bring your app idea straight to the hands of your users with mobile applications built on React Native and Flutter.",
+    serviceInnerHeading: "Seamless App Store Launch & Compliance",
+    serviceInnerPara: "We handle everything from UI prototyping and secure API integration to Apple App Store and Google Play publication."
+  },
+  {
+    title: "Cloud Consulting & Infrastructure",
+    description: "Expert guidance and implementation for migrating to and optimizing your infrastructure on leading cloud platforms like AWS, Azure, and Google Cloud.",
+    features: ["Cloud Strategy & Migration", "Infrastructure-as-Code", "Cost Optimization & Security Audits"],
+    serviceType: "Cloud Consulting & Infrastructure",
+    serviceOuterDescription: "Expert guidance and implementation for migrating, architecting, and optimizing multi-cloud infrastructure.",
+    serviceCardHeading: "Cloud Consulting & Infrastructure",
+    serviceCardPara: "Accelerate your digital transformation with secure, resilient cloud architecture, continuous integration, and optimized expenditure.",
+    serviceInnerHeading: "High-Availability Cloud Architectures",
+    serviceInnerPara: "We design cloud solutions prioritizing zero downtime, automated failovers, and robust data security protocols."
   },
   {
     title: "Video Editing & Motion Graphics",
     description: "High-retention cinematic video editing for YouTube, Reels, TikTok, and commercial ads.",
-    features: ["Reels & TikToks", "Motion Graphics", "Color Grading"],
+    features: ["Reels & TikTok Editing", "Motion Graphics", "Color Grading"],
     serviceType: "Video Editing & Motion Graphics",
     serviceOuterDescription: "High-retention cinematic video editing and dynamic motion graphics for social media.",
     serviceCardHeading: "Video Editing & Motion Graphics",
     serviceCardPara: "Captivate your audience in the first 3 seconds with high-retention short-form content and cinematic brand videos.",
     serviceInnerHeading: "Engineered for Algorithm Retention",
-    serviceInnerPara: "We use modern pacing, kinetic typography, and visual hooks to maximize watch time."
+    serviceInnerPara: "We use modern pacing, kinetic typography, and visual hooks to maximize watch time across all platforms."
   },
   {
     title: "Content Creation & Production",
@@ -154,10 +183,11 @@ const servicesData = [
 const autoSeedDatabase = async () => {
   try {
     const count = await Service.countDocuments();
-    if (count === 0) {
-      console.log("Database services collection is empty. Auto-seeding services...");
+    if (count < 13) {
+      console.log(`Database collection has ${count} items. Re-seeding all 13 services...`);
+      await Service.deleteMany({});
       await Service.insertMany(servicesData);
-      console.log("Database successfully auto-seeded with all services!");
+      console.log("Database successfully populated with all 13 services (including Cloud Consulting)!");
     } else {
       console.log(`Database already contains ${count} service records. Skipping auto-seed.`);
     }
@@ -169,10 +199,13 @@ const autoSeedDatabase = async () => {
 // MongoDB connection
 const connectToMongoDB = async () => {
   try {
-    const connectionString = "mongodb+srv://brightleeti_db_user:PdgAZrd3Je5BubUk@cluster0.oomfpl8.mongodb.net/";
-    await mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
-    console.log("Connected to MongoDB");
-    
+    const MONGO_URI =
+      process.env.MONGO_URI ||
+      "mongodb+srv://brightleeti_db_user:PdgAZrd3Je5BubUk@cluster0.oomfpl8.mongodb.net/";
+
+    await mongoose.connect(MONGO_URI);
+    console.log("Connected to MongoDB Atlas successfully.");
+
     // Trigger auto-seed right after connection succeeds
     await autoSeedDatabase();
   } catch (error) {
@@ -186,43 +219,39 @@ connectToMongoDB();
 app.use("/blogs", blogRoutes);
 app.use("/services", serviceRoutes);
 
-// Route to handle email sending
-app.post('/send-email', async (req, res) => {
+// Route to handle contact form email sending
+app.post("/send-email", async (req, res) => {
   const { name, email, phone, message } = req.body;
 
-  // TODO: Add server-side validation
-
   try {
-    // Send email using nodemailer (configure transporter with your email service)
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "gmail",
       auth: {
-        user: 'testnodemailerrai@gmail.com', // Replace with your email
-        pass: 'Test@Nodemailer@Rai', // Replace with your password
+        user: process.env.EMAIL_USER || "testnodemailerrai@gmail.com",
+        pass: process.env.EMAIL_PASS || "Test@Nodemailer@Rai",
       },
     });
 
     const mailOptions = {
-      from: email, // Using the user's email as the sender
-      to: 'testmail@example.com', // Replace with your designated email
-      subject: 'New Contact Form Submission',
+      from: email,
+      to: process.env.DESIGNATED_EMAIL || "testmail@example.com",
+      subject: "New AuraGrowth Contact Form Submission",
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
     };
 
-    // Send the email
     const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent:', info.response);
-    
-    res.status(200).json({ success: true, message: 'Email sent successfully' });
+    console.log("Email sent:", info.response);
+
+    res.status(200).json({ success: true, message: "Email sent successfully" });
   } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ success: false, error: 'Error sending email' });
+    console.error("Error sending email:", error);
+    res.status(500).json({ success: false, error: "Error sending email" });
   }
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
-module.exports = app; // Export the app for testing or other potential use
+module.exports = app;

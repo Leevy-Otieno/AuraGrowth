@@ -1,6 +1,9 @@
 
 import React, { useState } from 'react';
 import auraLogo from '../../assets/auragrowth.jpg';
+import brian from '../../assets/brianleso.jpeg';
+import leevy from '../../assets/leevy.jpeg';
+import luka from '../../assets/luka.jpeg';
 
 // --- EMBEDDED SVG ICONS (Zero external dependencies) ---
 const SparklesIcon = () => (
@@ -344,9 +347,9 @@ const AboutUsPage = () => {
             <div className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" 
+                  src={leevy}
                   alt="Leevy Otieno" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain transform transition-transform duration-500 ease-out group-hover:scale-125 z-10"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
               </div>
@@ -362,15 +365,15 @@ const AboutUsPage = () => {
             <div className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden hover:border-cyan-500/50 transition-all duration-300 group">
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" 
-                  alt="Digital Specialist" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+                  src={brian} 
+                  alt="Brian Otieno" 
+                 className="w-full h-full object-contain transform transition-transform duration-500 ease-out group-hover:scale-125 z-10"
+  />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
               </div>
               <div className="p-6 text-center">
-                <h4 className="text-lg font-bold text-white">Digital Marketing Specialist</h4>
-                <p className="text-xs text-cyan-400 font-semibold mb-3">SEO & Analytics Expert</p>
+                <h4 className="text-lg font-bold text-white">Brian Otieno</h4>
+                <p className="text-xs text-cyan-400 font-semibold mb-3">AI Engineer</p>
                 <p className="text-xs text-slate-400 leading-relaxed">
                   Specializing in data-driven search strategies and high-converting funnel design.
                 </p>
@@ -380,15 +383,15 @@ const AboutUsPage = () => {
             <div className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden hover:border-indigo-500/50 transition-all duration-300 group">
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" 
-                  alt="Creative Director" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  src={luka} 
+                  alt="Luka Mwendwa" 
+                  className="w-full h-full object-contain transform transition-transform duration-500 ease-out group-hover:scale-125 z-10"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
               </div>
               <div className="p-6 text-center">
-                <h4 className="text-lg font-bold text-white">Creative Director</h4>
-                <p className="text-xs text-indigo-400 font-semibold mb-3">Brand & Content Innovation</p>
+                <h4 className="text-lg font-bold text-white">Luka Mwendwa</h4>
+                <p className="text-xs text-indigo-400 font-semibold mb-3">Finance, accounting, risk and Asset management</p>
                 <p className="text-xs text-slate-400 leading-relaxed">
                   Crafting narrative campaigns that resonate emotionally and visually with audiences.
                 </p>

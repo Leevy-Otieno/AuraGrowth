@@ -4,7 +4,8 @@
 ![Stack: MERN](https://img.shields.io/badge/Stack-MERN-green.svg)
 
 ## Overview
-**AuraGrowth** is a modern, high-performance dynamic web application built for a premier digital marketing agency. Designed and engineered using the MERN stack (MongoDB, Express.js, React.js, and Node.js), this platform showcases scalable full-stack development, dynamic content management (CMS), seamless user interactions, and robust security practices.
+**AuraGrowth** is a modern, high-performance dynamic web application built for a premier digital marketing agency. Designed and engineered using the MERN stack (MongoDB, Express.js, React.js, and Node.js), this platform showcases scalable full-stack development, dynamic content manageme
+nt (CMS), seamless user interactions, and robust security practices.
 
 ---
 
