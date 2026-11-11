@@ -1,10 +1,11 @@
 
 import React, { useState } from 'react';
-import auraLogo from '../../assets/auragrowth.jpg';
+import omnivolta from '../../assets/omnivoltadigital.jpeg';
 import brian from '../../assets/brianleso.jpeg';
 import leevy from '../../assets/leevy.jpeg';
 import luka from '../../assets/luka.jpeg';
 import tyresse from '../../assets/tyresse.jpeg';
+import swavy from '../../assets/swavy.jpeg';
 
 // --- EMBEDDED SVG ICONS (Zero external dependencies) ---
 const SparklesIcon = () => (
@@ -75,7 +76,7 @@ const AboutUsPage = () => {
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 p-0.5 shadow-lg shadow-blue-500/20 group-hover:shadow-cyan-500/40 transition-shadow">
                 <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
                   <img 
-                                  src={auraLogo} 
+                                  src={omnivolta} 
                                   alt="weblogo" 
                                   className="h-9 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
                                 />
@@ -83,7 +84,7 @@ const AboutUsPage = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-extrabold text-white tracking-tight leading-none">
-                  Aura<span className="text-cyan-400">Growth</span>
+                  Omnivolta<span className="text-cyan-400">Digital</span>
                 </span>
                 <span className="text-[10px] tracking-widest text-slate-400 font-semibold uppercase">We Make Brands Impossible to Ignore</span>
               </div>
@@ -154,7 +155,7 @@ const AboutUsPage = () => {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                Accelerate Your Business With <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">AuraGrowth</span>
+                Accelerate Your Business With <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">Omnivolta</span>
               </h1>
 
               <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -362,6 +363,23 @@ const AboutUsPage = () => {
                 </p>
               </div>
             </div>
+             <div className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={swavy}
+                  alt="Ouma Brian" 
+                  className="w-full h-full object-contain transform transition-transform duration-500 ease-out group-hover:scale-125 z-10"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+              </div>
+              <div className="p-6 text-center">
+                <h4 className="text-lg font-bold text-white">Ouma Brian</h4>
+                <p className="text-xs text-blue-400 font-semibold mb-3"> Procurement  Officer</p>
+                <p className="text-xs text-slate-400 leading-relaxed">
+Passionate about procurement, driving cost-effective sourcing, and scaling transparent supply chain strategies.                  
+                </p>
+              </div>
+            </div>
             <div className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden hover:border-blue-500/50 transition-all duration-300 group">
               <div className="relative h-64 overflow-hidden">
                 <img 
@@ -442,7 +460,7 @@ const AboutUsPage = () => {
                   <div className="text-center py-12 space-y-4">
                     <h3 className="text-2xl font-bold text-white">Message Received!</h3>
                     <p className="text-slate-300 text-sm">
-                      Thank you for reaching out. An AuraGrowth specialist will respond to you shortly.
+                      Thank you for reaching out. An Omnivolta Digital specialist will respond to you shortly.
                     </p>
                   </div>
                 ) : (

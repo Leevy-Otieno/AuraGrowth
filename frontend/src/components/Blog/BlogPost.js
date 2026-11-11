@@ -322,7 +322,7 @@ const BlogPostDetail = () => {
   // Property normalization
   const image = blogPost.imageUrl || blogPost.image || fallbackBlogs[0].imageUrl;
   const title = blogPost.title || "Digital Marketing Insight";
-  const author = blogPost.author || "AuraGrowth Team";
+  const author = blogPost.author || "Brian Otieno Team";
   const rawDate = blogPost.createdAt || blogPost.date || new Date().toISOString();
   const formattedDate = moment(rawDate).isValid() ? moment(rawDate).format('MMM D, YYYY') : "Recent";
   const content = blogPost.content || blogPost.excerpt || "<p>Article content currently updating.</p>";

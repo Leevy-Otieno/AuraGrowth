@@ -8,7 +8,7 @@ const Footer = () => {
           
           {/* Copyright Text */}
           <p className="text-sm text-slate-400">
-            &copy; {new Date().getFullYear()} AuraGrowth Digital Marketing. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Omnivolta Digital Marketing. All Rights Reserved.
           </p>
 
           {/* Social Media Logos */}

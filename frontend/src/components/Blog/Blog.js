@@ -191,7 +191,7 @@ const BlogPage = () => {
               const postImage = post.imageUrl || post.image || fallbackBlogs[idx % fallbackBlogs.length].imageUrl;
               const postTitle = post.title || "Digital Growth Insight";
               const postContent = post.content || post.excerpt || "Explore our latest digital strategy analysis and technical breakdown.";
-              const postAuthor = post.author || "AuraGrowth Team";
+              const postAuthor = post.author || "Omnivolta Digital Team";
               const postDate = post.createdAt || post.date 
                 ? new Date(post.createdAt || post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) 
                 : "Recent";
